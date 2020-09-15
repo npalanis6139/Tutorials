@@ -81,7 +81,7 @@ PS C:\WINDOWS\system32> Connect-AzAccount
 
 Account                               SubscriptionName   TenantId                        
 -------                               ----------------   --------                        
-praveen.rajendran@student.griffith.ie Azure for Students bceba7fc-937d-449b-bec8-d1cf8...
+demouser@student.griffith.ie Azure for Students bceba7fc-937d-449b-bec8-d1cf8...
 
 
 
