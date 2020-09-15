@@ -1,0 +1,108 @@
+PS C:\WINDOWS\system32> Set-ExecutionPolicy RemoteSigned
+
+PS C:\WINDOWS\system32> Import-Module Az -Verbose
+Import-Module : The specified module 'Az' was not loaded because no valid 
+module file was found in any module directory.
+At line:1 char:1
++ Import-Module Az -Verbose
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (Az:String) [Import-Module] 
+   , FileNotFoundException
+    + FullyQualifiedErrorId : Modules_ModuleNotFound,Microsoft.PowerShell.Comm 
+   ands.ImportModuleCommand
+ 
+
+PS C:\WINDOWS\system32> Install-Module -Name Az-AllowClobber -Scope CurrentUser
+PackageManagement\Install-Package : No match was found for the specified 
+search criteria and module name 'Az-AllowClobber'. Try Get-PSRepository to see 
+all available registered module repositories.
+At C:\Program 
+Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PSModule.psm1:1809 
+char:21
++ ...          $null = PackageManagement\Install-Package @PSBoundParameters
++                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Microsoft.Power....InstallPacka 
+   ge:InstallPackage) [Install-Package], Exception
+    + FullyQualifiedErrorId : NoMatchFoundForCriteria,Microsoft.PowerShell.Pac 
+   kageManagement.Cmdlets.InstallPackage
+ 
+ 
+
+PS C:\WINDOWS\system32> [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
+
+
+ 
+
+PS C:\WINDOWS\system32> Get-PSRepository
+
+Name                      InstallationPolicy   SourceLocation                            
+----                      ------------------   --------------                            
+PSGallery                 Untrusted            https://www.powershellgallery.com/api/v2  
+
+ 
+
+PS C:\WINDOWS\system32> $PSVersionTable.PSVersion
+
+Major  Minor  Build  Revision
+-----  -----  -----  --------
+5      1      19041  1       
+
+
+PS C:\WINDOWS\system32> Get-PackageProvider -ListAvailable
+
+Name                     Version          DynamicOptions                                 
+----                     -------          --------------                                 
+msi                      3.0.0.0          AdditionalArguments                            
+msu                      3.0.0.0                                                         
+NuGet                    2.8.5.208        Destination, ExcludeVersion, Scope, SkipDepe...
+PowerShellGet            1.0.0.1          PackageManagementProvider, Type, Scope, Allo...
+Programs                 3.0.0.0          IncludeWindowsInstaller, IncludeSystemComponent
+
+
+
+PS C:\WINDOWS\system32> [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+
+PS C:\WINDOWS\system32> Install-Module -Name Az -AllowClobber
+
+PS C:\WINDOWS\system32> Install-Module Az -Verbose
+VERBOSE: Using the provider 'PowerShellGet' for searching packages.
+VERBOSE: The -Repository parameter was not specified.  PowerShellGet will use all of the r
+egistered repositories.
+VERBOSE: Getting the provider object for the PackageManagement Provider 'NuGet'.
+VERBOSE: The specified Location is 'https://www.powershellgallery.com/api/v2' and PackageM
+anagementProvider is 'NuGet'.
+VERBOSE: Searching repository 'https://www.powershellgallery.com/api/v2/FindPackagesById()
+?id='Az'' for ''.
+VERBOSE: Total package yield:'1' for the specified package 'Az'.
+VERBOSE: Skipping installed module Az 4.6.1.
+
+PS C:\WINDOWS\system32> Connect-AzAccount
+
+Account                               SubscriptionName   TenantId                        
+-------                               ----------------   --------                        
+praveen.rajendran@student.griffith.ie Azure for Students bceba7fc-937d-449b-bec8-d1cf8...
+
+
+
+PS C:\WINDOWS\system32> Get-AzResourceGroup -Location Eastus
+
+
+ResourceGroupName : practice_works_gp-1
+Location          : eastus
+ProvisioningState : Succeeded
+Tags              : 
+ResourceId        : /subscriptions/754742ce-bae5-4920-9ccd-a4ac2fc80c8d/resourceGroups/pr
+                    actice_works_gp-1
+
+ResourceGroupName : NetworkWatcherRG
+Location          : eastus
+ProvisioningState : Succeeded
+Tags              : 
+ResourceId        : /subscriptions/754742ce-bae5-4920-9ccd-a4ac2fc80c8d/resourceGroups/Ne
+                    tworkWatcherRG
+
+
+
+
+PS C:\WINDOWS\system32> 
